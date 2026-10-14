@@ -58,6 +58,38 @@ svg {
     linear-gradient(180deg, #ffffff 0%, #f5f9ff 100%);
 }
 
+.messenger-button {
+  position: fixed;
+  left: 20px;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  z-index: 30;
+  display: grid;
+  width: 56px;
+  height: 56px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 50%;
+  background: #0866ff;
+  box-shadow: 0 8px 24px rgba(11, 31, 58, 0.24);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.messenger-button svg {
+  width: 30px;
+  height: 30px;
+}
+
+.messenger-button:hover,
+.messenger-button:focus-visible {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 28px rgba(11, 31, 58, 0.3);
+}
+
+.messenger-button:focus-visible {
+  outline: 3px solid rgba(8, 102, 255, 0.35);
+  outline-offset: 3px;
+}
+
 .reveal {
   opacity: 0;
   transform: translateY(36px) scale(0.985);
@@ -407,10 +439,11 @@ svg {
   border: 0;
   background: transparent;
   color: var(--deep-blue);
-  font-size: 0.72rem;
+  font-size: 0.74rem;
   letter-spacing: 0.12rem;
   text-transform: uppercase;
   cursor: pointer;
+  opacity: 0.9;
 }
 
 .nav-menu-items {
@@ -422,12 +455,12 @@ svg {
 .nav-menu-items a {
   display: flex;
   align-items: center;
-  gap: 16px;
-  padding: 12px 0;
+  gap: 12px;
+  padding: 10px 0;
   border-bottom: 1px solid rgba(17,24,39,0.06);
   color: var(--deep-blue);
-  font-size: clamp(2.1rem, 5vw, 4rem);
-  line-height: 0.95;
+  font-size: clamp(1.45rem, 3.5vw, 2.6rem);
+  line-height: 0.96;
   letter-spacing: -0.06em;
   text-transform: uppercase;
   opacity: 0;
@@ -442,8 +475,9 @@ svg {
 
 .nav-menu-items a span {
   color: var(--primary);
-  font-size: 0.68rem;
-  letter-spacing: 0.16rem;
+  font-size: 0.66rem;
+  letter-spacing: 0.12rem;
+  line-height: 1;
 }
 
 .nav-menu-items a:hover,

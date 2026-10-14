@@ -1,24 +1,12 @@
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { BrandLogo } from "@/components/BrandLogo";
+import { SiteHeader } from "@/components/SiteHeader";
 
 export default function AboutPage() {
   return (
     <div className="site-shell">
-      <header className="topbar">
-        <div className="topbar-inner">
-          <Link href="/" className="brand" aria-label="Trang chủ Vieton">
-            <BrandLogo alt="" className="brand-logo" />
-          </Link>
-          <nav className="topnav subpage-topnav" aria-label="Điều hướng chính">
-            <Link href="/about" aria-current="page">Giới thiệu</Link>
-            <Link href="/services">Dịch vụ</Link>
-            <Link href="/markets">Thị trường</Link>
-            <Link href="/work">Công việc</Link>
-            <Link href="/contact">Liên hệ</Link>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader variant="subpage" />
 
       <main>
         <Reveal as="div" className="page-hero page-hero-about">
@@ -95,7 +83,7 @@ export default function AboutPage() {
             <h4>Liên hệ</h4>
             <ul>
               <li><Link href="/contact">Liên hệ</Link></li>
-              <li>hello@vieton.com</li>
+              <li>nguyentrunghuyenhvtc@gmail.com</li>
             </ul>
           </div>
         </div>

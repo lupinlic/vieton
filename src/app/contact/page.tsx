@@ -1,24 +1,13 @@
 import Link from "next/link";
 import { Reveal } from "@/components/Reveal";
 import { BrandLogo } from "@/components/BrandLogo";
+import { SiteHeader } from "@/components/SiteHeader";
+import { ContactForm } from "@/components/ContactForm";
 
 export default function ContactPage() {
   return (
     <div className="site-shell">
-      <header className="topbar">
-        <div className="topbar-inner">
-          <Link href="/" className="brand" aria-label="Trang chủ Vieton">
-            <BrandLogo alt="" className="brand-logo" />
-          </Link>
-          <nav className="topnav subpage-topnav" aria-label="Điều hướng chính">
-            <Link href="/about">Giới thiệu</Link>
-            <Link href="/services">Dịch vụ</Link>
-            <Link href="/markets">Thị trường</Link>
-            <Link href="/work">Công việc</Link>
-            <Link href="/contact" aria-current="page">Liên hệ</Link>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader variant="subpage" />
 
       <main>
         <Reveal as="div" className="page-hero page-hero-contact">
@@ -53,18 +42,14 @@ export default function ContactPage() {
           </div>
           <div className="contact-page-card">
             <span className="contact-page-index">Vieton · Đông Nam Á</span>
-            <h3>Hãy bắt đầu từ đây</h3>
-            <p>
-              Gửi email để trao đổi về thương hiệu, sản phẩm hoặc kế hoạch mở
-              rộng của bạn
-            </p>
-            <a href="mailto:hello@vieton.com" className="contact-email-link">
-              hello@vieton.com <span aria-hidden="true">↗</span>
+            <h3 className="contact-form-heading">Gửi thông tin cho chúng tôi</h3>
+            <ContactForm />
+            <a
+              href="mailto:nguyentrunghuyenhvtc@gmail.com"
+              className="contact-email-link"
+            >
+              Hoặc email trực tiếp <span aria-hidden="true">↗</span>
             </a>
-            <div className="contact-page-location">
-              <span className="contact-status-dot" aria-hidden="true" />
-              Việt Nam <b>→</b> Đông Nam Á
-            </div>
           </div>
         </Reveal>
       </main>
@@ -95,7 +80,7 @@ export default function ContactPage() {
             <h4>Liên hệ</h4>
             <ul>
               <li><Link href="/contact">Liên hệ</Link></li>
-              <li>hello@vieton.com</li>
+              <li>nguyentrunghuyenhvtc@gmail.com</li>
             </ul>
           </div>
         </div>

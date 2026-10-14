@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
 import { BrandLogo } from "@/components/BrandLogo";
+import { SiteHeader } from "@/components/SiteHeader";
+import { ContactForm } from "@/components/ContactForm";
 
 function CountUp({
   value,
@@ -209,16 +211,8 @@ const globePoints = [
 ];
 
 export default function Home() {
-  const [menuOpen, setMenuOpen] = useState(false);
   const [processVisible, setProcessVisible] = useState(false);
   const processListRef = useRef<HTMLOListElement | null>(null);
-  const navLinks = [
-    { href: "/about", label: "Giới thiệu" },
-    { href: "/services", label: "Dịch vụ" },
-    { href: "/markets", label: "Thị trường" },
-    { href: "/work", label: "Công việc" },
-    { href: "/contact", label: "Liên hệ" },
-  ];
 
   useEffect(() => {
     const node = processListRef.current;
@@ -244,62 +238,7 @@ export default function Home() {
 
   return (
     <div className="site-shell">
-      <header className="topbar">
-        <div className="topbar-inner">
-          <Link href="/" className="brand" aria-label="Trang chủ Vieton">
-            <BrandLogo alt="" className="brand-logo" />
-          </Link>
-
-          <nav className="topnav" aria-label="Điều hướng chính">
-            {navLinks.map(({ href, label }) => (
-              <Link key={href} href={href}>
-                {label}
-              </Link>
-            ))}
-          </nav>
-
-          <button
-            type="button"
-            className="nav-toggle"
-            aria-label={menuOpen ? "Đóng menu" : "Mở menu"}
-            aria-expanded={menuOpen}
-            onClick={() => setMenuOpen((prev) => !prev)}
-          >
-            <span />
-            <span />
-          </button>
-        </div>
-
-        <div
-          className={`site-menu ${menuOpen ? "is-open" : ""}`}
-          aria-hidden={!menuOpen}
-        >
-          <div className="site-menu-panel">
-            <button
-              type="button"
-              className="menu-close"
-              aria-label="Đóng menu"
-              onClick={() => setMenuOpen(false)}
-            >
-              Đóng
-            </button>
-
-            <div className="nav-menu-items">
-              {navLinks.map(({ href, label }, index) => (
-                <Link
-                  key={href}
-                  href={href}
-                  onClick={() => setMenuOpen(false)}
-                  style={{ transitionDelay: `${index * 70}ms` }}
-                >
-                  <span>0{index + 1}</span>
-                  {label}
-                </Link>
-              ))}
-            </div>
-          </div>
-        </div>
-      </header>
+      <SiteHeader />
 
       <main>
         <Reveal
@@ -936,58 +875,7 @@ export default function Home() {
                 Để lại thông tin để bắt đầu trao đổi cùng Vieton
               </p>
             </div>
-            <div className="contact-fields" role="group" aria-label="Thông tin liên hệ">
-              <label className="contact-field">
-                <span>Họ và tên</span>
-                <input
-                  type="text"
-                  name="name"
-                  autoComplete="name"
-                  placeholder="Tên của bạn"
-                />
-              </label>
-              <label className="contact-field">
-                <span>Email</span>
-                <input
-                  type="email"
-                  name="email"
-                  autoComplete="email"
-                  placeholder="ban@congty.com"
-                />
-              </label>
-              <label className="contact-field">
-                <span>Số điện thoại</span>
-                <input
-                  type="tel"
-                  name="phone"
-                  autoComplete="tel"
-                  placeholder="+84"
-                />
-              </label>
-              <label className="contact-field">
-                <span>Doanh nghiệp</span>
-                <input
-                  type="text"
-                  name="company"
-                  autoComplete="organization"
-                  placeholder="Tên doanh nghiệp"
-                />
-              </label>
-              <label className="contact-field contact-field-message">
-                <span>Bạn muốn trao đổi về điều gì?</span>
-                <textarea
-                  name="message"
-                  rows={3}
-                  placeholder="Chia sẻ ngắn về mục tiêu của bạn"
-                />
-              </label>
-              <div className="contact-form-actions">
-                <p>Biểu mẫu chưa kết nối chức năng gửi</p>
-                <button className="contact-submit" type="button">
-                  Gửi thông tin <span aria-hidden="true">→</span>
-                </button>
-              </div>
-            </div>
+            <ContactForm />
           </div>
         </Reveal>
       </main>
@@ -1033,7 +921,7 @@ export default function Home() {
               <li>
                 <Link href="/contact">Liên hệ</Link>
               </li>
-              <li>hello@vieton.com</li>
+              <li>nguyentrunghuyenhvtc@gmail.com</li>
               <li>+84 000 000 000</li>
             </ul>
           </div>

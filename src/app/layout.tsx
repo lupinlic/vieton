@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Nunito } from "next/font/google";
+import { MessengerButton } from "@/components/MessengerButton";
 import "./globals.css";
 
 const nunito = Nunito({
@@ -39,6 +40,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     >
       <body className="min-h-full flex flex-col bg-white text-slate-900">
         {children}
+        <MessengerButton />
       </body>
     </html>
   );
